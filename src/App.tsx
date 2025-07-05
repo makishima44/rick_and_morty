@@ -1,7 +1,11 @@
-import "./App.css";
+import { AllCharactersPage } from "./pages/AllCharactersPage";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <AllCharactersPage />
+    </div>
+  );
 }
 
 export default App;

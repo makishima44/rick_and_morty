@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useGetAllCharactersQuery } from "../services/rickAndMortyApi";
 import style from "./AllCharactersPage.module.css";
+import { Character } from "../component/character";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
@@ -11,7 +12,7 @@ export const AllCharactersPage = () => {
       <h2>All characters</h2>
       <ul>
         {data?.results.map((el) => {
-          return <li>{el.name}</li>;
+          return <Character name={el.name} image={el.image} status={el.status} />;
         })}
       </ul>
 
