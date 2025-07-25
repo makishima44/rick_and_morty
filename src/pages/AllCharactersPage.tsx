@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useGetAllCharactersQuery } from "../services/rickAndMortyApi";
 import style from "./AllCharactersPage.module.css";
-import { Character } from "../component/character";
+
+import { Link } from "react-router-dom";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
@@ -11,9 +12,11 @@ export const AllCharactersPage = () => {
     <div className={style.allCharactersPage}>
       <h2>All characters</h2>
       <ul>
-        {data?.results.map((el) => {
-          return <Character name={el.name} image={el.image} status={el.status} />;
-        })}
+        {data?.results.map((el) => (
+          <li key={el.id}>
+            <Link to={`/character/${el.id}`}>{el.name}</Link>
+          </li>
+        ))}
       </ul>
 
       <div>
