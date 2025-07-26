@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetAllCharactersQuery } from "../services/rickAndMortyApi";
+import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
 import style from "./AllCharactersPage.module.css";
 
 import { Link } from "react-router-dom";

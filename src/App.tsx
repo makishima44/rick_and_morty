@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AllCharactersPage } from "./pages/AllCharactersPage";
+import { AllCharactersPage } from "./pages/AllCharactersPage/AllCharactersPage";
 import { CharacterPage } from "./pages/CharacterPage/CharacterPage";
 
 function App() {
