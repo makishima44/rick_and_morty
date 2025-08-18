@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
 import style from "./AllCharactersPage.module.css";
-
 import { Link } from "react-router-dom";
-import Button from "../../component/button";
+import { Button } from "../../component/button";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
