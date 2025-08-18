@@ -3,6 +3,7 @@ import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
 import style from "./AllCharactersPage.module.css";
 
 import { Link } from "react-router-dom";
+import Button from "../../component/button";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
@@ -20,8 +21,8 @@ export const AllCharactersPage = () => {
       </ul>
 
       <div>
-        <button onClick={() => setPage((p) => p - 1)}>prev</button>
-        <button onClick={() => setPage((p) => p + 1)}>next</button>
+        <Button onClick={() => setPage((p) => p - 1)}>prev</Button>
+        <Button onClick={() => setPage((p) => p + 1)}>next</Button>
       </div>
     </div>
   );
