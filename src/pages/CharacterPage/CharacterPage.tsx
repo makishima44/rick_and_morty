@@ -13,11 +13,21 @@ export const CharacterPage = () => {
     <div className={style.characterPage}>
       <h2>{data.name}</h2>
       <img src={data.image} alt={data.name} />
-      <p>Status: {data.status}</p>
-      <p>Species: {data.species}</p>
-      <p>Gender: {data.gender}</p>
-      <p>Origin: {data.origin.name}</p>
-      <p>Location: {data.location.name}</p>
+      <p>
+        <span>Status:</span> {data.status}
+      </p>
+      <p>
+        <span>Species:</span> {data.species}
+      </p>
+      <p>
+        <span>Gender:</span> {data.gender}
+      </p>
+      <p>
+        <span>Origin:</span> {data.origin.name}
+      </p>
+      <p>
+        <span>Location:</span> {data.location.name}
+      </p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
-import style from "./AllCharactersPage.module.css";
+import s from "./AllCharactersPage.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "../../component/button";
 
@@ -9,7 +9,7 @@ export const AllCharactersPage = () => {
   const { data } = useGetAllCharactersQuery(page);
 
   return (
-    <div className={style.allCharactersPage}>
+    <div className={s.allCharactersPage}>
       <h2>All characters</h2>
       <ul>
         {data?.results.map((el) => (
@@ -19,7 +19,7 @@ export const AllCharactersPage = () => {
         ))}
       </ul>
 
-      <div>
+      <div className={s.buttonBlock}>
         <Button onClick={() => setPage((p) => p - 1)}>prev</Button>
         <Button onClick={() => setPage((p) => p + 1)}>next</Button>
       </div>

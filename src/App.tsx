@@ -7,8 +7,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AllCharactersPage />} />
-          <Route path="/character/:id" element={<CharacterPage />} />
+          <Route path='/' element={<AllCharactersPage />} />
+          <Route path='/character/:id' element={<CharacterPage />} />
         </Routes>
       </BrowserRouter>
     </div>
