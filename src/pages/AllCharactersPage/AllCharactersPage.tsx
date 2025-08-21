@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
 import s from "./AllCharactersPage.module.css";
 import { Link } from "react-router-dom";
-import { Button } from "../../component/button";
+
+import { Pagination } from "../../component/pagination/Pagination";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
@@ -19,10 +20,7 @@ export const AllCharactersPage = () => {
         ))}
       </ul>
 
-      <div className={s.buttonBlock}>
-        <Button onClick={() => setPage((p) => p - 1)}>prev</Button>
-        <Button onClick={() => setPage((p) => p + 1)}>next</Button>
-      </div>
+      {data && <Pagination currentPage={page} totalCount={data.info.count} setPageChange={setPage} />}
     </div>
   );
 };

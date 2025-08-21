@@ -37,7 +37,7 @@ export const rickAndMortyApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getAllCharacters: builder.query<CharactersResponse, number | void>({
-      query: (page) => `character/?page=${page}`,
+      query: (page = 1) => `character/?page=${page}`,
     }),
     getCharacterById: builder.query<Character, number>({
       query: (id) => `character/${id}`,

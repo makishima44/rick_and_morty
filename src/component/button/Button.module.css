@@ -15,6 +15,29 @@
   user-select: none;
 }
 
+/*-------------------------- pagination_button------------------------------------------*/
+
+.button-pagination {
+  width: 40px;
+  height: 30px;
+  padding: 0;
+  justify-content: center;
+  color: mediumspringgreen;
+  border-color: mediumspringgreen;
+}
+
+.button-pagination:hover {
+  color: #212121;
+  background: mediumspringgreen;
+}
+
+.button-pagination::before,
+.button-pagination::after {
+  display: none;
+}
+
+/*-------------------------- pagination_button------------------------------------------*/
+
 .button p {
   z-index: 1;
 }
