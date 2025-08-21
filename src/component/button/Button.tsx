@@ -5,8 +5,8 @@ type ButtonProps = ComponentPropsWithoutRef<"button"> & {
   variant?: "default" | "pagination";
 };
 
-export const Button = ({ children, variant = "default", ...rest }: ButtonProps) => {
-  const classes = `${s.button} ${variant === "pagination" ? s["button-pagination"] : ""}`;
+export const Button = ({ children, variant = "default", className, ...rest }: ButtonProps) => {
+  const classes = `${s.button} ${variant === "pagination" ? s["button-pagination"] : ""} ${className || ""}`;
 
   return (
     <button className={classes} {...rest}>
