@@ -1,0 +1,11 @@
+.paginationBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.activePage {
+  background: mediumspringgreen;
+  color: #212121;
+}

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetCharacterByIdQuery } from "../../services/rickAndMortyApi";
-import style from "./CharacterPage.module.css";
+import s from "./CharacterPage.module.css";
 
 export const CharacterPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -10,7 +10,7 @@ export const CharacterPage = () => {
   if (error || !data) return <p>Ошибка загрузки</p>;
 
   return (
-    <div className={style.characterPage}>
+    <div className={s.characterPage}>
       <h2>{data.name}</h2>
       <img src={data.image} alt={data.name} />
       <p>
