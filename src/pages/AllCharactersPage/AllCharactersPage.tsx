@@ -11,8 +11,8 @@ export const AllCharactersPage = () => {
 
   return (
     <div className={s.allCharactersPage}>
-      <h2>All characters</h2>
-      <ul>
+      <h2 className={s.title}>All characters</h2>
+      <ul className={s.list}>
         {data?.results.map((el) => (
           <li key={el.id}>
             <Link to={`/character/${el.id}`}>{el.name}</Link>
