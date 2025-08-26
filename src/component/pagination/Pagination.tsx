@@ -2,19 +2,19 @@ import { Button } from "../button";
 import s from "./Pagination.module.css";
 
 type PaginationProps = {
-  totalCount: number;
+  totalPages: number;
   currentPage: number;
   setPageChange: (page: number) => void;
 };
 
-export const Pagination = ({ totalCount, currentPage, setPageChange }: PaginationProps) => {
+export const Pagination = ({ totalPages, currentPage, setPageChange }: PaginationProps) => {
   const visiblePages = 3;
 
   let start = Math.max(1, currentPage - Math.floor(visiblePages / 2));
   let end = start + visiblePages - 1;
 
-  if (end > totalCount) {
-    end = totalCount;
+  if (end > totalPages) {
+    end = totalPages;
     start = Math.max(1, end - visiblePages + 1);
   }
 
@@ -34,7 +34,7 @@ export const Pagination = ({ totalCount, currentPage, setPageChange }: Paginatio
         );
       })}
 
-      <Button onClick={() => setPageChange(currentPage + 1)} disabled={currentPage === totalCount}>
+      <Button onClick={() => setPageChange(currentPage + 1)} disabled={currentPage === totalPages}>
         Next
       </Button>
     </div>
