@@ -36,10 +36,12 @@ export const rickAndMortyApi = createApi({
   reducerPath: "rickAndMorty",
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
-    getAllCharacters: builder.query<CharactersResponse, { page?: number; status: string | null }>({
-      query: ({ page = 1, status = null }) => {
+    getAllCharacters: builder.query<CharactersResponse, { page?: number; status: string | null; species: string | null; gender: string | null }>({
+      query: ({ page = 1, status = null, species = null, gender = null }) => {
         let url = `character/?page=${page}`;
         if (status) url += `&status=${status}`;
+        if (species) url += `&species=${species}`;
+        if (gender) url += `&gender=${gender}`;
         return url;
       },
     }),
