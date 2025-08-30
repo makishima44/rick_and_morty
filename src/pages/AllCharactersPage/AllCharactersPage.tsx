@@ -8,17 +8,28 @@ import { Filters } from "../../component/header/Filters";
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
+  const [speciesFilter, setSpeciesFilter] = useState<string | null>(null);
+  const [genderFilter, setGenderFilter] = useState<string | null>(null);
 
-  const { data } = useGetAllCharactersQuery({ page, status: statusFilter });
+  const { data } = useGetAllCharactersQuery({ page, status: statusFilter, species: speciesFilter, gender: genderFilter });
 
   const handleStatusChange = (status: string) => {
     setStatusFilter(status);
     setPage(1);
   };
 
+  const handleSpeciesChange = (species: string) => {
+    setSpeciesFilter(species);
+    setPage(1);
+  };
+
+  const handleGenderChange = (gender: string) => {
+    setGenderFilter(gender);
+    setPage(1);
+  };
   return (
     <div className={s.allCharactersPage}>
-      <Filters onStatusChange={handleStatusChange} />
+      <Filters onStatusChange={handleStatusChange} onSpeciesChange={handleSpeciesChange} onGenderChange={handleGenderChange} />
       <h2 className={s.title}>All characters</h2>
       <ul className={s.list}>
         {data?.results.map((el) => (
