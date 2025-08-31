@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetAllCharactersQuery } from "../../services/rickAndMortyApi";
 import s from "./AllCharactersPage.module.css";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../component/pagination/Pagination";
-import { Filters } from "../../component/header/Filters";
+import { FiltersSearchMenu } from "../../component/filtersSearchMenu";
 
 export const AllCharactersPage = () => {
   const [page, setPage] = useState(1);
-  const [statusFilter, setStatusFilter] = useState<string | null>(null);
-  const [speciesFilter, setSpeciesFilter] = useState<string | null>(null);
-  const [genderFilter, setGenderFilter] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<string | null>(() => localStorage.getItem("statusFilter"));
+  const [speciesFilter, setSpeciesFilter] = useState<string | null>(() => localStorage.getItem("speciesFilter"));
+  const [genderFilter, setGenderFilter] = useState<string | null>(() => localStorage.getItem("genderFilter"));
 
   const { data } = useGetAllCharactersQuery({ page, status: statusFilter, species: speciesFilter, gender: genderFilter });
 
@@ -27,9 +27,29 @@ export const AllCharactersPage = () => {
     setGenderFilter(gender);
     setPage(1);
   };
+
+  useEffect(() => {
+    if (statusFilter) localStorage.setItem("statusFilter", statusFilter);
+    else localStorage.removeItem("statusFilter");
+    if (speciesFilter) localStorage.setItem("speciesFilter", speciesFilter);
+    else localStorage.removeItem("speciesFilter");
+    if (genderFilter) localStorage.setItem("genderFilter", genderFilter);
+    else localStorage.removeItem("genderFilter");
+  }, [statusFilter, speciesFilter, genderFilter]);
+
   return (
     <div className={s.allCharactersPage}>
-      <Filters onStatusChange={handleStatusChange} onSpeciesChange={handleSpeciesChange} onGenderChange={handleGenderChange} />
+      <div className={s.filters}>
+        <FiltersSearchMenu
+          currentStatus={statusFilter}
+          currentSpecies={speciesFilter}
+          currentGender={genderFilter}
+          onStatusChange={handleStatusChange}
+          onSpeciesChange={handleSpeciesChange}
+          onGenderChange={handleGenderChange}
+        />
+      </div>
+
       <h2 className={s.title}>All characters</h2>
       <ul className={s.list}>
         {data?.results.map((el) => (
