@@ -53,8 +53,13 @@ export const AllCharactersPage = () => {
       <h2 className={s.title}>All characters</h2>
       <ul className={s.list}>
         {data?.results.map((el) => (
-          <li key={el.id}>
-            <Link to={`/character/${el.id}`}>{el.name}</Link>
+          <li className={s.item} key={el.id}>
+            <Link to={`/character/${el.id}`}>
+              <div className={s.card}>
+                <p className={s.name}>{el.name}</p>
+                <img className={s.img} src={el.image} alt='character' />
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
