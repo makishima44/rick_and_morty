@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetCharacterByIdQuery } from "../../services/rickAndMortyApi";
 import s from "./CharacterPage.module.css";
 
@@ -29,6 +29,7 @@ export const CharacterPage = () => {
         <p>
           <span>Location:</span> {data.location.name}
         </p>
+        <Link to={"/"}>Back</Link>
       </div>
     </div>
   );
